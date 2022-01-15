@@ -1,1 +1,3 @@
-// Test if application compiles
+/*
+Test if application compiles
+*/
