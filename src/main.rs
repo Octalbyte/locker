@@ -1,3 +1,9 @@
+const AUTHOR: &str = "@Octalbyte";
+const VERSION: &str = "0.1.0";
+
 fn main() {
-    println!("Hello, world!");
+    println!("Locker v{} made by {}", VERSION, AUTHOR);
+    
+
+
 }
