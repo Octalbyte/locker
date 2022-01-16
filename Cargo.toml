@@ -3,9 +3,12 @@ name = "locker"
 version = "0.1.0"
 edition = "2021"
 
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 progressing = "3.0.2"
 rust-crypto = "0.2.36"
 colored = "2.0.0"
+clap = "3.0.7"
+rsa = "0.5.0"
