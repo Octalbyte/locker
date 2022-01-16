@@ -19,5 +19,7 @@ assert_ne!(&data[..], &enc_data[..]);
 // Decrypt
 let dec_data = priv_key.decrypt(PaddingScheme::new_pkcs1v15_encrypt(), &enc_data).expect("failed to decrypt");
 assert_eq!(&data[..], &dec_data[..]);
+
+println!("{:?} -> {:?}", enc_data, dec_data);
 }
 }
