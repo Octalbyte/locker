@@ -1,4 +1,4 @@
-pub mod encryptFile {
+pub mod encrypt_file {
 
     extern crate rand;
     use rand::rngs::OsRng;
@@ -29,10 +29,6 @@ pub mod encryptFile {
 
         println!("{:?} -> {:?}", enc_data, dec_data);
 
-        /*let s = match str::from_utf8(&enc_data) {
-            Ok(v) => v,
-            Err(e) => panic!("Invalid UTF-8 sequence: {}", e),
-        };*/
         let t = match str::from_utf8(&dec_data) {
             Ok(v) => v,
             Err(e) => panic!("Invalid UTF-8 sequence: {}", e),
