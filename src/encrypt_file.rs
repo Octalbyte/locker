@@ -3,9 +3,9 @@ pub mod encrypt_file {
     extern crate rand;
     use rand::rngs::OsRng;
     use rsa::{PaddingScheme, PublicKey, RsaPrivateKey, RsaPublicKey};
-    use std::str;
     use std::fs;
     use std::io::Write;
+    use std::str;
 
     pub fn hello() {
         //complete uselessness
@@ -37,16 +37,19 @@ pub mod encrypt_file {
         println!("result -> {}", t);
     }
 
-    pub fn write_create(path: &str, buf: &Vec<u8>, key: &RsaPublicKey) -> Result<(), std::io::Error>{
+    pub fn write_create(
+        path: &str,
+        buf: &Vec<u8>,
+        key: &RsaPublicKey,
+    ) -> Result<(), std::io::Error> {
         let mut rng = OsRng;
         let enc_data = key
-        .encrypt(&mut rng, PaddingScheme::new_pkcs1v15_encrypt(), &buf[..])
-        .expect("failed to encrypt");
+            .encrypt(&mut rng, PaddingScheme::new_pkcs1v15_encrypt(), &buf[..])
+            .expect("failed to encrypt");
 
         let mut file = fs::File::create(path)?;
         // Write a slice of bytes to the file
         file.write_all(&enc_data)?;
         Ok(())
     }
-
 }
