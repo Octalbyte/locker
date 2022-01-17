@@ -1,11 +1,14 @@
-pub mod hello {
+pub mod encryptFile {
+
+    extern crate rand;
+    use rand::rngs::OsRng;
+    use rsa::{PaddingScheme, PublicKey, RsaPrivateKey, RsaPublicKey};
+    use std::str;
+    use std::fs;
+    use std::io::Write;
 
     pub fn hello() {
-        extern crate rand;
-        use rand::rngs::OsRng;
-        use rsa::{PaddingScheme, PublicKey, RsaPrivateKey, RsaPublicKey};
-        use std::str;
-
+        //complete uselessness
         let mut rng = OsRng;
         let bits = 2048;
         let priv_key = RsaPrivateKey::new(&mut rng, bits).expect("failed to generate a key");
@@ -26,15 +29,28 @@ pub mod hello {
 
         println!("{:?} -> {:?}", enc_data, dec_data);
 
-        let s = match str::from_utf8(&enc_data) {
+        /*let s = match str::from_utf8(&enc_data) {
             Ok(v) => v,
             Err(e) => panic!("Invalid UTF-8 sequence: {}", e),
-        };
+        };*/
         let t = match str::from_utf8(&dec_data) {
             Ok(v) => v,
             Err(e) => panic!("Invalid UTF-8 sequence: {}", e),
         };
 
-        println!("result: {} -> {}", s, t);
+        println!("result -> {}", t);
     }
+
+    pub fn write_create(path: &str, buf: &Vec<u8>, key: &RsaPublicKey) -> Result<(), std::io::Error>{
+        let mut rng = OsRng;
+        let enc_data = key
+        .encrypt(&mut rng, PaddingScheme::new_pkcs1v15_encrypt(), &buf[..])
+        .expect("failed to encrypt");
+
+        let mut file = fs::File::create(path)?;
+        // Write a slice of bytes to the file
+        file.write_all(&enc_data)?;
+        Ok(())
+    }
+
 }
