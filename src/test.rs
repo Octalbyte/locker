@@ -2,7 +2,7 @@
 
 mod hello {
     #[test]
-    fn hello(){
+    fn hello_crypt(){
         extern crate rand;
 use std::str;
 use rsa::{PublicKey, RsaPrivateKey, RsaPublicKey, PaddingScheme};
