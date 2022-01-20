@@ -11,7 +11,7 @@ edition = "2021"
 progressing = "3.0.2"
 rust-crypto = "0.2.36"
 colored = "2.0.0"
-clap = {version = "3.0.7", features = ["derive"]}
+clap = "2.33.0"
 rsa = "0.5.0"
 rand = "0.8.4"
 aes-gcm-siv = "0.10.3"
