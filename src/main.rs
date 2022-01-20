@@ -14,6 +14,12 @@ struct Args {
     /// Number of times to greet
     #[clap(short, long, default_value = "")]
     string: String,
+
+    #[clap(short, long, default_value = "")]
+    pwd: String,
+
+    #[clap(short, long, default_value = "")]
+    hash: String,
 }
 
 pub mod encrypt_file;
@@ -26,20 +32,6 @@ fn main() {
     println!("Locker v{} made by {}", VERSION, AUTHOR);
     let args: Vec<String> = env::args().collect();
     let clap_args = Args::parse();
-    if 1 == args.len(){
-        println!("At least one subcommand required");
-        std::process::exit(1);
-    }
-    let command = &args[1];
-    match command.as_str() {
-        "encrypt" => {
 
-        }
-        _ => {
-            println!("Command not found: {}", command.bold());
-            println!("Run `locker --help` to get help");
-            std::process::exit(1);
-        }
-    }
     //encrypt_file::encrypt_file::hello();
 }
