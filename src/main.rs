@@ -15,15 +15,9 @@ fn main() {
         std::process::exit(0);
     }
     match subc[1].as_str() {
-        "encrypt" => {
-            match subc[2].as_str() {
-                "file" => {
+        "new" => {
 
-                }
-                _ => {}
-
-            }
-        },
+	}
         "help" => {
             match subc[2].as_str() {
                 "encrypt" => {}
