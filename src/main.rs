@@ -14,17 +14,20 @@ fn main() {
         std::process::exit(0);
     }
     match subc[1].as_str() {
-        "new" => {
-
-	}
+        "entry" => {
+            let entry = subc[2].as_str();
+            
+	    }
         "help" => {
-            match subc[2].as_str() {
-                "encrypt" => {}
-                "decrypt" => {}
-                "hash" => {}
-                "check" => {}
-                _ => {}
-            }
+             println!("
+                Welcome to Locker@0.1.0 by @Octalbyte
+
+                Usage:
+
+                locker entry [name] -> Add a password
+                locker delete [name] -> Delete an entry
+                locker copy [path] -> Copy to another path, together with the encrypted passwords
+             ")
         },
 
         _ => {}
