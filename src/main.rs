@@ -1,6 +1,5 @@
 use colored::*;
 use minparse::minparse;
-pub mod encrypt_file;
 pub mod symmetric;
 use std;
 const AUTHOR: &str = "@Octalbyte";
@@ -8,7 +7,7 @@ const VERSION: &str = "0.1.0";
 
 fn main() {
     println!("Locker v{} made by {}", VERSION.bold(), AUTHOR.bold());
-   
+
     let subc = minparse::subcommands();
     if subc.len() == 1 {
         println!("");
