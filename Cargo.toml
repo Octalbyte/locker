@@ -9,7 +9,7 @@ edition = "2021"
 
 [dependencies]
 colored = "2.0.0"
-rsa = "0.5.0"
+rsa = "0.6.0"
 rand = "0.8.4"
 aes-gcm-siv = "0.10.3"
 minparse = "0.1.2"
